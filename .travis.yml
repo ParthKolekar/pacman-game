@@ -1,0 +1,18 @@
+language: python
+python:
+    - 2.7
+    - pypy
+    - 2.6
+install:
+    - pip install .
+    - pip install -r requirements.txt
+    - pip install coverage
+    - pip install nose
+script: 
+    - python setup.py install
+    - nosetests --with-coverage --cover-package=pacman
+after_success:
+    - coveralls --verbose
+notifications:
+    email:
+        - parth.kolekar@students.iiit.ac.in

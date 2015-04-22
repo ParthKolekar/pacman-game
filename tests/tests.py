@@ -6,7 +6,11 @@
 """
 
 import unittest
-from .pacman import Ghost, Pacman, GameMaze, Game
+from ..pacman.pacman import Pacman
+from ..pacman.ghost import Ghost
+from ..pacman.game import Game
+from ..pacman.gamemaze import GameMaze
+
 
 class TestPacmanModule(unittest.TestCase):
     """
@@ -131,7 +135,6 @@ class TestPacmanModule(unittest.TestCase):
         pacman.change_score(10)
         self.assertEqual(pacman.score, 10)
 
-
     def test_game_entropy(self):
         """
             Tests if maze is random or not
@@ -140,7 +143,6 @@ class TestPacmanModule(unittest.TestCase):
         game_maze = GameMaze()
         string = str(game_maze)
         game_maze = GameMaze()
-
         self.assertEqual(string != str(game_maze), True)
 
     def test_instances(self):
