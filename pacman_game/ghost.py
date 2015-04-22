@@ -2,8 +2,9 @@
     A smart AI based Ghost
 """
 
-from .person import Person
 from random import randint
+
+from .person import Person
 
 
 class Ghost(Person):

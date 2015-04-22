@@ -5,10 +5,10 @@
     Pacman implementation in python
 """
 
-from .utils import size_parser, difficulty_parser, getch, clear
+from .game import Game
 from .gamemaze import GameMaze
 from .ghost import Ghost
-from .game import Game
+from .utils import clear, difficulty_parser, getch, size_parser
 
 
 def main():
