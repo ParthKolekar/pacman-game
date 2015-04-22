@@ -10,7 +10,7 @@ install:
     - pip install nose
 script: 
     - python setup.py install
-    - nosetests --with-coverage --cover-package=pacman
+    - nosetests --with-coverage 
 after_success:
     - coveralls --verbose
 notifications:

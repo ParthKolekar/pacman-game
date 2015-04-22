@@ -9,7 +9,7 @@ from setuptools import setup
 
 setup(
     name='pacman-game',
-    version='1.0',
+    version='1.0.0.dev1',
     description='A simple Pacman Game',
     long_description=__doc__,
     license='LGPLv3',
@@ -22,4 +22,5 @@ setup(
             'pacman-game = pacman_game.main:main',
         ]
     },
+    keywords='pacman console ai simple basic',
 )

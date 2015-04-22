@@ -7,10 +7,10 @@
 
 import unittest
 
-from ..pacman_game.game import Game
-from ..pacman_game.gamemaze import GameMaze
-from ..pacman_game.ghost import Ghost
-from ..pacman_game.pacman import Pacman
+from pacman_game.game import Game
+from pacman_game.gamemaze import GameMaze
+from pacman_game.ghost import Ghost
+from pacman_game.pacman import Pacman
 
 
 class TestPacmanModule(unittest.TestCase):
