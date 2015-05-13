@@ -8,7 +8,7 @@
 from .game import Game
 from .gamemaze import GameMaze
 from .ghost import Ghost
-from .utils import clear, difficulty_parser, getch, size_parser
+from .utils import clear, argument_parser, getch
 
 
 def main():
@@ -16,9 +16,8 @@ def main():
         Main function
     """
 
-    (size_x, size_y) = size_parser()
+    (size_x, size_y, difficulty) = argument_parser()
     game_maze = GameMaze(1, (size_x, size_y))
-    difficulty = difficulty_parser()
     game = Game(difficulty, game_maze)
     for _ in xrange(0, difficulty):
         game.ghosts.append(Ghost(game.game_maze.place_enemy()))

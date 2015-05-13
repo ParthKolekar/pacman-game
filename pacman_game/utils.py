@@ -2,6 +2,7 @@
     A collection of helper modules
 """
 
+import argparse
 
 try:
     from msvcrt import getch
@@ -35,7 +36,7 @@ def clear(clear_num=100):
 
 def size_parser():
     """
-        Parse Sizes
+        DEPRICATED: Parse Sizes
     """
 
     try:
@@ -59,7 +60,7 @@ def size_parser():
 
 def difficulty_parser():
     """
-        Parse difficulty
+        DEPRICATED: Parse difficulty
     """
 
     try:
@@ -75,3 +76,16 @@ def difficulty_parser():
         print 'Invalid Input. Assuming Defaults 4 Ghosts'
         difficulty = 4
     return difficulty
+
+
+def argument_parser():
+    """
+        Parse arguments from the command line
+    """
+    parser = argparse.ArgumentParser()
+    parser.add_argument('-d', '--difficulty', type=int, help="Enter the difficulty [0-10]", default=4)
+    parser.add_argument('-x', '--size-x', type=int, help="Enter the width", default=35)
+    parser.add_argument('-y', '--size-y', type=int, help="Enter the height", default=15)
+    args = parser.parse_args()
+
+    return (args.size_x, args.size_y, args.difficulty)

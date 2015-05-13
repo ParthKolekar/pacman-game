@@ -5,6 +5,8 @@
 
 from .gamemaze import GameMaze
 from .pacman import Pacman
+from .exceptions import KillGhostException
+from .exceptions import KillPlayerException
 
 
 class Game(object):
@@ -31,8 +33,7 @@ class Game(object):
             pacman.move_next()
 
         if self.game_maze.get_attribute(pacman.get_current()) == GameMaze.MAZE['ghost'] or self.game_maze.get_attribute(pacman.get_current()) == GameMaze.MAZE['coinghost']:
-            print GameMaze.COLORS['pacman'] + 'You cannot kill Ghosts' + GameMaze.COLORS['END']
-            exit(0)
+            raise KillGhostException
 
         if self.game_maze.get_attribute(pacman.get_current()) == GameMaze.MAZE['coin']:
             pacman.change_score(1)
@@ -51,9 +52,9 @@ class Game(object):
         ghost.think_next(self.game_maze, self.pacman)
         if not self.game_maze.checkwall(ghost.get_next()) and self.game_maze.get_attribute(ghost.get_next()) != GameMaze.MAZE['ghost'] and self.game_maze.get_attribute(ghost.get_next()) != GameMaze.MAZE['coinghost']:
             ghost.move_next()
+
         if self.game_maze.get_attribute(ghost.get_current()) == GameMaze.MAZE['pacman']:
-            print GameMaze.COLORS['pacman'] + 'The AI killed you off. :(' + GameMaze.COLORS['END']
-            exit(0)
+            raise KillPlayerException
 
         if self.game_maze.get_attribute(game_point) == GameMaze.MAZE['coinghost']:
             self.game_maze.set_attribute(game_point, GameMaze.MAZE['coin'])
