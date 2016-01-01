@@ -2,7 +2,7 @@ from setuptools import setup, find_packages
 from codecs import open
 from os import path
 
-VERSION = '1.0.1.dev1'
+VERSION = '1.0.2.dev1'
 
 here = path.abspath(path.dirname(__file__))
 
@@ -28,7 +28,7 @@ setup(
     classifiers=[
       'Development Status :: 3 - Alpha',
       'Intended Audience :: Developers',
-      'Programming Language :: Python :: 3',
+      'Programming Language :: Python :: 2',
     ],
     keywords='pacman console ai game',
     packages=find_packages(exclude=['docs', 'tests*']),
